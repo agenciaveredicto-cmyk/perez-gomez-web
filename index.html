@@ -102,7 +102,7 @@
       font-size: 0.9rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--blue);
+      color: var(--white);
       transition: color 0.3s;
     }
     .nav.scrolled .nav-logo { color: var(--navy); }
@@ -863,7 +863,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      z-index: 99;
+      z-index: 200;
       background: rgba(7,20,48,0.98);
       flex-direction: column;
       align-items: center;
@@ -882,15 +882,17 @@
     .mobile-menu a:hover { opacity: 1; color: var(--blue-light); }
     .mobile-close {
       position: absolute;
-      top: 1.5rem; right: 1.5rem;
+      top: 1rem; right: 1rem;
       background: none;
       border: none;
-      color: rgba(255,255,255,0.5);
-      font-size: 1.8rem;
+      color: rgba(255,255,255,0.75);
+      font-size: 2rem;
       cursor: pointer;
-      padding: 8px;
+      padding: 16px;
       line-height: 1;
+      z-index: 1;
     }
+    .mobile-close:hover { color: var(--white); }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────────── */
     @media (max-width: 1024px) {
