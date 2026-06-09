@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pérez Gómez | Estudio Jurídico Empresarial · Córdoba</title>
+  <meta name="description" content="Estudio jurídico especializado en derecho corporativo, contratos, compliance y resolución de conflictos. Córdoba, Argentina.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Pérez Gómez | Estudio Jurídico Empresarial">
+  <meta property="og:description" content="Precisión legal. Resultados empresariales. Estudio jurídico corporativo en Córdoba, Argentina.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta name="theme-color" content="#0B1F4B">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80" fetchpriority="high">
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────────── */
+    :root {
+      --navy:       #0B1F4B;
+      --navy-deep:  #071430;
+      --navy-mid:   #112560;
+      --blue:       #2E5BFF;
+      --blue-light: #4F77FF;
+      --blue-dim:   rgba(46,91,255,0.12);
+      --white:      #FFFFFF;
+      --surface:    #F4F6FB;
+      --muted:      #6B7A99;
+      --text:       #1A2540;
+      --border:     rgba(11,31,75,0.10);
+      --shadow-sm:  0 2px 12px rgba(11,31,75,0.08);
+      --shadow-md:  0 8px 32px rgba(11,31,75,0.14);
+      --shadow-lg:  0 20px 60px rgba(11,31,75,0.18);
+      --radius:     4px;
+      --radius-lg:  10px;
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-sans:  'DM Sans', system-ui, sans-serif;
+      --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button, input, textarea, select { font: inherit; }
+    ul { list-style: none; }
+
+    /* ─── SCROLL ANIMATIONS ──────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.10s; }
+    .reveal-delay-2 { transition-delay: 0.20s; }
+    .reveal-delay-3 { transition-delay: 0.30s; }
+    .reveal-delay-4 { transition-delay: 0.40s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ─── NAV ────────────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 5vw;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+    }
+    .nav.scrolled {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--border), var(--shadow-sm);
+    }
+    .nav-logo {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      transition: color 0.3s;
+    }
+    .nav.scrolled .nav-logo { color: var(--navy); }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.85);
+      transition: color 0.25s;
+      padding: 4px 0;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 1px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform 0.25s var(--ease-out);
+      transform-origin: left;
+    }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav.scrolled .nav-links a { color: var(--muted); }
+    .nav.scrolled .nav-links a:hover { color: var(--navy); }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 20px;
+      border-radius: var(--radius);
+      background: var(--blue);
+      color: var(--white) !important;
+      font-size: 0.8rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.04em !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--blue-light); transform: translateY(-1px); }
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--white);
+      transition: background 0.3s;
+    }
+    .nav.scrolled .nav-burger span { background: var(--navy); }
+
+    /* ─── HERO ───────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 5vw 10vh;
+      background-color: var(--navy-deep);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(170deg, rgba(7,20,48,0.72) 0%, rgba(11,31,75,0.40) 40%, rgba(7,20,48,0.92) 100%);
+    }
+    /* Floating blue accent orb */
+    .hero-orb {
+      position: absolute;
+      top: 15%; right: 8%;
+      width: clamp(200px, 30vw, 420px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, rgba(46,91,255,0.25) 0%, transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.8rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s var(--ease-out) 0.2s forwards;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px; height: 1px;
+      background: var(--blue);
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: clamp(2.8rem, 6vw, 6rem);
+      line-height: 1.08;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin-bottom: 1.8rem;
+    }
+    .hero-headline .word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .hero-headline .line { display: block; }
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.6vw, 1.12rem);
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+      max-width: 480px;
+      margin-bottom: 2.6rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s var(--ease-out) 0.85s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s var(--ease-out) 1.05s forwards;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 32px;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s var(--ease-out), box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(46,91,255,0.35);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 28px;
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.88rem;
+      font-weight: 400;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.22);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.55);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem; right: 5vw;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 1.4s forwards;
+    }
+    .hero-scroll span {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      writing-mode: vertical-rl;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
+      animation: scrollPulse 2.2s ease-in-out 2s infinite;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* ─── STATS ──────────────────────────────────────────────────── */
+    .stats {
+      background: var(--white);
+      padding: 5rem 5vw;
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .stat-item {
+      padding: 3rem 2.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 20%; bottom: 20%;
+      width: 1px;
+      background: var(--border);
+    }
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+    .stat-number .stat-suffix {
+      color: var(--blue);
+    }
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+
+    /* ─── ABOUT STRIP ─────────────────────────────────────────────── */
+    .about-strip {
+      padding: 7rem 5vw;
+      background: var(--surface);
+    }
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.4rem;
+    }
+    .about-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 1.8rem;
+    }
+    .about-title em {
+      font-style: italic;
+      color: var(--blue);
+    }
+    .about-body {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .about-visual { }
+    .about-img-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-img-wrap img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s var(--ease-out);
+    }
+    .about-img-wrap:hover img { transform: scale(1.03); }
+    .about-img-quote {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem 2rem 1.8rem;
+      background: linear-gradient(to top, rgba(7,20,48,0.92) 0%, transparent 100%);
+      color: var(--white);
+    }
+    .about-img-quote svg { margin-bottom: 0.7rem; }
+    .about-img-quote p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      margin-bottom: 0.8rem;
+      color: rgba(255,255,255,0.92);
+    }
+    .about-img-quote cite {
+      font-size: 0.72rem;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+    }
+
+    /* ─── GALERÍA ────────────────────────────────────────────────── */
+    .galeria {
+      padding: 0 5vw 6rem;
+      background: var(--white);
+    }
+    .galeria-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 240px 240px;
+      gap: 10px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .galeria-item {
+      overflow: hidden;
+      position: relative;
+    }
+    .galeria-item:first-child {
+      grid-row: 1 / 3;
+    }
+    .galeria-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease-out);
+    }
+    .galeria-item:hover img { transform: scale(1.06); }
+    .galeria-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(11,31,75,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .galeria-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 180px 180px 180px;
+      }
+      .galeria-item:first-child { grid-row: 1 / 2; grid-column: 1 / 3; }
+    }
+    @media (max-width: 480px) {
+      .galeria-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 200px);
+      }
+      .galeria-item:first-child { grid-column: 1; grid-row: 1; }
+    }
+
+    /* ─── PRÁCTICA ───────────────────────────────────────────────── */
+    .practica {
+      background: var(--navy);
+      padding: 7rem 5vw;
+      position: relative;
+      overflow: hidden;
+    }
+    .practica::before {
+      content: '';
+      position: absolute;
+      top: -40%; right: -10%;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(46,91,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .section-header {
+      max-width: 1100px;
+      margin: 0 auto 4rem;
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--blue);
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .practica-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5px;
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .practica-card {
+      background: var(--navy-mid);
+      padding: 2.8rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: background 0.3s, transform 0.25s var(--ease-out);
+    }
+    .practica-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s var(--ease-out);
+    }
+    .practica-card:hover { background: #162d6b; transform: translateY(-3px); }
+    .practica-card:hover::before { transform: scaleX(1); }
+    .practica-icon {
+      width: 44px; height: 44px;
+      margin-bottom: 1.6rem;
+      color: var(--blue-light);
+    }
+    .practica-icon svg { width: 100%; height: 100%; }
+    .practica-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+    .practica-desc {
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.7;
+    }
+    .practica-number {
+      position: absolute;
+      bottom: 1.8rem; right: 2rem;
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 500;
+      color: rgba(46,91,255,0.08);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ─── EQUIPO ─────────────────────────────────────────────────── */
+    .equipo {
+      padding: 7rem 5vw;
+      background: var(--white);
+    }
+    .equipo .section-header .section-title { color: var(--navy); }
+    .equipo .section-label { color: var(--blue); }
+    .equipo .section-label::before { background: var(--blue); }
+    .equipo-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .equipo-card {
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      transition: box-shadow 0.3s, transform 0.25s var(--ease-out), border-color 0.3s;
+      text-align: center;
+    }
+    .equipo-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+      border-color: rgba(46,91,255,0.2);
+    }
+    .equipo-avatar {
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      margin: 0 auto 1.4rem;
+      overflow: hidden;
+      border: 3px solid var(--surface);
+      box-shadow: 0 0 0 1px var(--border);
+    }
+    .equipo-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .equipo-name {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+    .equipo-role {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+    .equipo-bio {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .equipo-divider {
+      width: 28px; height: 1px;
+      background: var(--blue);
+      margin: 0.9rem auto;
+      opacity: 0.5;
+    }
+
+    /* ─── CONTACTO ───────────────────────────────────────────────── */
+    .contacto {
+      padding: 7rem 5vw;
+      background: var(--surface);
+    }
+    .contacto .section-header .section-title { color: var(--navy); }
+    .contacto .section-label { color: var(--blue); }
+    .contacto .section-label::before { background: var(--blue); }
+    .contacto-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contacto-info { }
+    .contacto-info-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 2rem;
+      line-height: 1.3;
+    }
+    .contacto-detail {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+      align-items: flex-start;
+    }
+    .contacto-detail-icon {
+      width: 40px; height: 40px;
+      flex-shrink: 0;
+      background: var(--blue-dim);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+    }
+    .contacto-detail-icon svg { width: 18px; height: 18px; }
+    .contacto-detail-text {
+      padding-top: 2px;
+    }
+    .contacto-detail-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+    .contacto-detail-value {
+      font-size: 0.92rem;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+    .contacto-form {
+      background: var(--white);
+      padding: 3rem;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 1rem;
+    }
+    .form-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.92rem;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(46,91,255,0.10);
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%;
+      padding: 15px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--navy-mid); transform: translateY(-1px); }
+    .form-submit:active { transform: translateY(0); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────── */
+    footer {
+      background: var(--navy-deep);
+      padding: 2.5rem 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ─── WHATSAPP ───────────────────────────────────────────────── */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 200;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.2s var(--ease-out), box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .whatsapp-btn::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: rgba(37,211,102,0.25);
+      animation: waPulse 2.5s ease-out infinite;
+    }
+    .whatsapp-btn:hover {
+      transform: scale(1.08) translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.5);
+    }
+    .whatsapp-btn svg { width: 28px; height: 28px; color: white; position: relative; z-index: 1; }
+    @keyframes waPulse {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    /* ─── MOBILE NAV ─────────────────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: rgba(7,20,48,0.98);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--white);
+      opacity: 0.85;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .mobile-menu a:hover { opacity: 1; color: var(--blue-light); }
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: 8px;
+      line-height: 1;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .practica-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .hero { padding-bottom: 8vh; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-item:not(:last-child)::after {
+        top: auto; bottom: 0; left: 10%; right: 10%; width: auto; height: 1px;
+      }
+      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .practica-grid { grid-template-columns: 1fr; }
+      .equipo-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .contacto-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .contacto-form { padding: 2rem 1.5rem; }
+      footer { flex-direction: column; align-items: flex-start; }
+      .hero-scroll { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-headline { font-size: 2.4rem; }
+      .btn-primary, .btn-secondary { padding: 13px 22px; font-size: 0.84rem; }
+    }
+
+    /* ─── SKIP LINK (a11y) ───────────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      padding: 10px 18px;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 0 0 var(--radius) var(--radius);
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ─── FOCUS VISIBLE ──────────────────────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+      border-radius: var(--radius);
+    }
+    .nav-logo:focus-visible,
+    .nav-links a:focus-visible { outline-offset: 5px; }
+
+    /* ─── MICRO: NAV LINKS ───────────────────────────────────────── */
+    .nav-links a {
+      letter-spacing: 0.06em;
+      transition: color 0.25s, letter-spacing 0.3s var(--ease-out);
+    }
+    .nav-links a:hover { letter-spacing: 0.10em; }
+    .nav.scrolled .nav-links a:hover { letter-spacing: 0.10em; }
+
+    /* ─── MICRO: BUTTONS ─────────────────────────────────────────── */
+    .btn-primary .btn-arrow {
+      display: inline-block;
+      transition: transform 0.25s var(--ease-out);
+    }
+    .btn-primary:hover .btn-arrow { transform: translateX(4px); }
+
+    .btn-secondary {
+      overflow: hidden;
+      position: relative;
+      z-index: 0;
+    }
+    .btn-secondary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.06);
+      transform: translateX(-101%);
+      transition: transform 0.35s var(--ease-out);
+      z-index: -1;
+    }
+    .btn-secondary:hover::before { transform: translateX(0); }
+
+    /* ─── MICRO: PRÁCTICA CARDS — shimmer sweep ──────────────────── */
+    .practica-card {
+      overflow: hidden;
+    }
+    .practica-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.03) 50%,
+        transparent 100%
+      );
+      transform: skewX(-15deg);
+      transition: left 0.55s var(--ease-out);
+      pointer-events: none;
+    }
+    .practica-card:hover::after { left: 135%; }
+
+    /* ─── MICRO: SECTION LABEL LINE ──────────────────────────────── */
+    .section-label::before,
+    .about-label::before {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      vertical-align: middle;
+      margin-right: 10px;
+      transition: width 0.6s var(--ease-out);
+    }
+    .reveal.visible .section-label::before,
+    .reveal.visible .about-label::before { width: 24px; }
+    /* override existing ::before on .section-label */
+    .section-label { gap: 0; }
+
+    /* ─── MICRO: EQUIPO CARDS — divider draws on hover ───────────── */
+    .equipo-divider {
+      transform: scaleX(0.15);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-out), opacity 0.3s;
+      opacity: 0.4;
+    }
+    .equipo-card:hover .equipo-divider {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    /* ─── MICRO: EQUIPO CARDS — avatar ring on hover ─────────────── */
+    .equipo-avatar {
+      transition: box-shadow 0.35s var(--ease-out);
+    }
+    .equipo-card:hover .equipo-avatar {
+      box-shadow: 0 0 0 3px var(--blue);
+    }
+
+    /* ─── MICRO: FORM — animated left-border on focus ────────────── */
+    .form-group { position: relative; }
+    .form-input, .form-textarea {
+      padding-left: 14px;
+      border-left-width: 2px;
+      transition: border-color 0.2s, box-shadow 0.2s, padding-left 0.2s;
+    }
+    .form-input:focus, .form-textarea:focus {
+      padding-left: 18px;
+      border-left-color: var(--blue);
+      border-left-width: 3px;
+    }
+
+    /* ─── MICRO: FORM LABEL — slides up on focus ─────────────────── */
+    .form-label {
+      transition: color 0.2s, letter-spacing 0.25s var(--ease-out);
+    }
+    .form-group:focus-within .form-label {
+      color: var(--blue);
+      letter-spacing: 0.12em;
+    }
+
+    /* ─── MICRO: CONTACT ICONS ───────────────────────────────────── */
+    .contacto-detail-icon {
+      transition: background 0.25s, transform 0.25s var(--ease-out);
+    }
+    .contacto-detail:hover .contacto-detail-icon {
+      background: var(--blue);
+      color: var(--white);
+      transform: scale(1.08);
+    }
+    .contacto-detail-icon svg {
+      transition: transform 0.25s var(--ease-out);
+    }
+    .contacto-detail:hover .contacto-detail-icon svg {
+      transform: scale(1.1);
+    }
+
+    /* ─── MICRO: STATS — underline draws after count ─────────────── */
+    .stat-number {
+      position: relative;
+      display: inline-block;
+    }
+    .stat-number::after {
+      content: '';
+      position: absolute;
+      bottom: -6px; left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 32px; height: 2px;
+      background: var(--blue);
+      border-radius: 2px;
+      transition: transform 0.5s var(--ease-out) 1.6s;
+    }
+    .stats .reveal.visible .stat-number::after { transform: translateX(-50%) scaleX(1); }
+
+    /* ─── MICRO: NAV BURGER ──────────────────────────────────────── */
+    .nav-burger span {
+      transform-origin: center;
+      transition: transform 0.3s var(--ease-out), opacity 0.2s, background 0.3s;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ─── MICRO: WHATSAPP — tooltip on hover ─────────────────────── */
+    .whatsapp-btn {
+      gap: 0;
+      overflow: visible;
+    }
+    .whatsapp-label {
+      position: absolute;
+      right: 66px;
+      background: var(--white);
+      color: #1a1a1a;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(6px);
+      transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+      pointer-events: none;
+    }
+    .whatsapp-label::after {
+      content: '';
+      position: absolute;
+      right: -5px; top: 50%;
+      transform: translateY(-50%);
+      border: 5px solid transparent;
+      border-right: none;
+      border-left-color: var(--white);
+    }
+    .whatsapp-btn:hover .whatsapp-label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ─── MICRO: GALERÍA — caption reveal ────────────────────────── */
+    .galeria-item {
+      cursor: pointer;
+    }
+    .galeria-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 0.8rem 1rem;
+      background: linear-gradient(to top, rgba(7,20,48,0.75), transparent);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transform: translateY(100%);
+      transition: transform 0.3s var(--ease-out);
+    }
+    .galeria-item:hover .galeria-caption { transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+
+  <!-- ── NAV ─────────────────────────────────────────────────────── -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+    <a class="nav-logo" href="#inicio" aria-label="Pérez Gómez — Inicio">PÉREZ GÓMEZ</a>
+    <ul class="nav-links" role="list">
+      <li><a href="#practica">Práctica</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#contacto" class="nav-cta">Consultar</a></li>
+    </ul>
+    <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false" id="burgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── MOBILE MENU ──────────────────────────────────────────────── -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú de navegación">
+    <button class="mobile-close" id="closeMenu" aria-label="Cerrar menú">&times;</button>
+    <a href="#practica" class="mobile-link">Práctica</a>
+    <a href="#equipo" class="mobile-link">Equipo</a>
+    <a href="#contacto" class="mobile-link">Contacto</a>
+    <a href="#contacto" class="mobile-link" style="color:var(--blue-light)">Consultar</a>
+  </div>
+
+  <!-- ── HERO ─────────────────────────────────────────────────────── -->
+  <main id="main-content">
+  <section class="hero" id="inicio" aria-label="Inicio">
+    <div class="hero-bg" aria-hidden="true">
+      <!-- Corporate building exterior — Unsplash -->
+      <img
+        class="hero-bg-img"
+        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+      >
+      <div class="hero-gradient"></div>
+      <div class="hero-orb"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Estudio Jurídico Empresarial · Est. 2003</div>
+      <h1 class="hero-headline" aria-label="Precisión Legal. Resultados Empresariales.">
+        <span class="line">
+          <span class="word">Precisión</span>&nbsp;<span class="word">Legal.</span>
+        </span>
+        <span class="line">
+          <span class="word">Resultados</span>&nbsp;<span class="word">Empresariales.</span>
+        </span>
+      </h1>
+      <p class="hero-sub">
+        Estudio jurídico especializado en derecho corporativo.<br>
+        Córdoba, Argentina.
+      </p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-primary">
+          Solicitar consulta
+          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#practica" class="btn-secondary">Ver áreas de práctica</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ── STATS ─────────────────────────────────────────────────────── -->
+  <section class="stats" id="stats" aria-label="Cifras clave">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number"><span class="count" data-target="20">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label">Años de trayectoria</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number"><span class="count" data-target="200">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label">Empresas asesoradas</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number"><span class="count" data-target="98">0</span><span class="stat-suffix">%</span></div>
+        <div class="stat-label">Casos resueltos favorablemente</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ──────────────────────────────────────────────────────── -->
+  <section class="about-strip" aria-label="Sobre el estudio">
+    <div class="about-inner">
+      <div class="reveal">
+        <div class="about-label">Quiénes somos</div>
+        <h2 class="about-title">Un estudio con visión <em>estratégica</em> para el mundo de los negocios</h2>
+        <p class="about-body">Pérez Gómez nació con la convicción de que el derecho debe ser una herramienta al servicio del crecimiento empresarial. Combinamos rigor técnico y conocimiento profundo del ecosistema corporativo argentino para ofrecer asesoramiento de alto impacto.</p>
+      </div>
+      <div class="about-visual reveal reveal-delay-2">
+        <div class="about-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=900&q=80"
+            alt="Biblioteca jurídica del estudio"
+            loading="lazy"
+            width="900" height="600"
+          >
+          <div class="about-img-quote">
+            <svg width="28" height="20" viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M0 20V12.5C0 5.596 3.764 1.458 11.293 0l1.414 2.344C9.14 3.32 7.217 5.45 6.621 9H12V20H0Zm16 0V12.5C16 5.596 19.764 1.458 27.293 0l1.414 2.344C25.14 3.32 23.217 5.45 22.621 9H28V20H16Z" fill="rgba(46,91,255,0.5)"/></svg>
+            <p>El mejor consejo jurídico es el que anticipa los problemas antes de que ocurran.</p>
+            <cite>Dr. Rodrigo Pérez — Socio Fundador</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ÁREAS DE PRÁCTICA ──────────────────────────────────────────── -->
+  <section class="practica" id="practica" aria-labelledby="practica-title">
+    <div class="section-header reveal">
+      <div class="section-label">Especialización</div>
+      <h2 class="section-title" id="practica-title">Áreas de práctica</h2>
+    </div>
+    <div class="practica-grid">
+
+      <article class="practica-card reveal reveal-delay-1">
+        <div class="practica-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+          </svg>
+        </div>
+        <h3 class="practica-title">Derecho Corporativo</h3>
+        <p class="practica-desc">Constitución de sociedades, restructuraciones, gobierno corporativo y asesoramiento continuo a directorios y gerencias.</p>
+        <div class="practica-number" aria-hidden="true">01</div>
+      </article>
+
+      <article class="practica-card reveal reveal-delay-2">
+        <div class="practica-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <h3 class="practica-title">Contratos &amp; M&amp;A</h3>
+        <p class="practica-desc">Negociación y redacción de contratos comerciales complejos. Due diligence y estructuración de fusiones y adquisiciones.</p>
+        <div class="practica-number" aria-hidden="true">02</div>
+      </article>
+
+      <article class="practica-card reveal reveal-delay-1">
+        <div class="practica-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="practica-title">Compliance Empresarial</h3>
+        <p class="practica-desc">Programas de integridad, prevención de lavado de activos, protección de datos personales y auditorías de cumplimiento normativo.</p>
+        <div class="practica-number" aria-hidden="true">03</div>
+      </article>
+
+      <article class="practica-card reveal reveal-delay-2">
+        <div class="practica-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/>
+          </svg>
+        </div>
+        <h3 class="practica-title">Resolución de Conflictos</h3>
+        <p class="practica-desc">Litigios comerciales, arbitraje nacional e internacional y mediación. Defensa estratégica en procesos judiciales de alta complejidad.</p>
+        <div class="practica-number" aria-hidden="true">04</div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── GALERÍA ───────────────────────────────────────────────────── -->
+  <section class="galeria" aria-label="Imágenes del estudio">
+    <div class="galeria-grid">
+      <div class="galeria-item reveal">
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=900&q=80" alt="Biblioteca jurídica con tomos de derecho" loading="lazy" width="900" height="600">
+        <div class="galeria-caption">Biblioteca jurídica</div>
+      </div>
+      <div class="galeria-item reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Reunión de negocios" loading="lazy" width="600" height="400">
+        <div class="galeria-caption">Asesoramiento empresarial</div>
+      </div>
+      <div class="galeria-item reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Oficina moderna del estudio" loading="lazy" width="600" height="400">
+        <div class="galeria-caption">Nuestras oficinas</div>
+      </div>
+      <div class="galeria-item reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80" alt="Firma de contrato empresarial" loading="lazy" width="600" height="400">
+        <div class="galeria-caption">Contratos & M&A</div>
+      </div>
+      <div class="galeria-item reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Abogado corporativo" loading="lazy" width="600" height="400">
+        <div class="galeria-caption">Equipo profesional</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EQUIPO ─────────────────────────────────────────────────────── -->
+  <section class="equipo" id="equipo" aria-labelledby="equipo-title">
+    <div class="section-header reveal">
+      <div class="section-label">Nuestro equipo</div>
+      <h2 class="section-title" id="equipo-title" style="color:var(--navy)">Los profesionales detrás del estudio</h2>
+    </div>
+    <div class="equipo-grid">
+
+      <article class="equipo-card reveal reveal-delay-1">
+        <div class="equipo-avatar">
+          <img src="https://ui-avatars.com/api/?name=Rodrigo+P%C3%A9rez&background=0B1F4B&color=fff&size=192&font-size=0.38&bold=true" alt="Dr. Rodrigo Pérez" width="96" height="96">
+        </div>
+        <h3 class="equipo-name">Dr. Rodrigo Pérez</h3>
+        <div class="equipo-role">Socio Fundador</div>
+        <div class="equipo-divider" aria-hidden="true"></div>
+        <p class="equipo-bio">Especialista en derecho corporativo y M&amp;A. Más de 20 años asesorando a empresas nacionales y multinacionales en Córdoba y Buenos Aires.</p>
+      </article>
+
+      <article class="equipo-card reveal reveal-delay-2">
+        <div class="equipo-avatar">
+          <img src="https://ui-avatars.com/api/?name=Valentina+G%C3%B3mez&background=2E5BFF&color=fff&size=192&font-size=0.38&bold=true" alt="Dra. Valentina Gómez" width="96" height="96">
+        </div>
+        <h3 class="equipo-name">Dra. Valentina Gómez</h3>
+        <div class="equipo-role">Socia</div>
+        <div class="equipo-divider" aria-hidden="true"></div>
+        <p class="equipo-bio">Líder del área de compliance y regulatorio. Experta en normativa de protección de datos y programas de integridad corporativa.</p>
+      </article>
+
+      <article class="equipo-card reveal reveal-delay-3">
+        <div class="equipo-avatar">
+          <img src="https://ui-avatars.com/api/?name=Mateo+Fern%C3%A1ndez&background=112560&color=fff&size=192&font-size=0.38&bold=true" alt="Dr. Mateo Fernández" width="96" height="96">
+        </div>
+        <h3 class="equipo-name">Dr. Mateo Fernández</h3>
+        <div class="equipo-role">Asociado Senior</div>
+        <div class="equipo-divider" aria-hidden="true"></div>
+        <p class="equipo-bio">Abogado litigante especializado en conflictos comerciales y arbitraje. Miembro del Centro de Arbitraje y Mediación de Córdoba.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── CONTACTO ───────────────────────────────────────────────────── -->
+  <section class="contacto" id="contacto" aria-labelledby="contacto-title">
+    <div class="section-header reveal" style="max-width:1100px;margin:0 auto 4rem;">
+      <div class="section-label" style="color:var(--blue)">
+        <span style="display:inline-flex;align-items:center;gap:10px;">
+          <span style="width:24px;height:1px;background:var(--blue);display:inline-block;"></span>
+          Contacto
+        </span>
+      </div>
+      <h2 class="section-title" id="contacto-title" style="color:var(--navy)">Hablemos de su empresa</h2>
+    </div>
+    <div class="contacto-inner">
+      <div class="reveal">
+        <h3 class="contacto-info-title">Estamos en Córdoba, listos para asesorarlo</h3>
+
+        <div class="contacto-detail">
+          <div class="contacto-detail-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contacto-detail-text">
+            <div class="contacto-detail-label">Oficina</div>
+            <div class="contacto-detail-value">Av. Hipólito Yrigoyen 550, Piso 8<br>Nueva Córdoba, X5000 Córdoba</div>
+          </div>
+        </div>
+
+        <div class="contacto-detail">
+          <div class="contacto-detail-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41a2 2 0 0 1 1.998-2.185h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.09 6.09l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="contacto-detail-text">
+            <div class="contacto-detail-label">Teléfono</div>
+            <div class="contacto-detail-value">+54 351 422-0000</div>
+          </div>
+        </div>
+
+        <div class="contacto-detail">
+          <div class="contacto-detail-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contacto-detail-text">
+            <div class="contacto-detail-label">Email</div>
+            <div class="contacto-detail-value">contacto@perezgomez.com.ar</div>
+          </div>
+        </div>
+
+        <div class="contacto-detail">
+          <div class="contacto-detail-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="contacto-detail-text">
+            <div class="contacto-detail-label">Horario</div>
+            <div class="contacto-detail-value">Lunes a Viernes · 9:00 – 18:30 hs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contacto-form reveal reveal-delay-2">
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="nombre">Nombre *</label>
+              <input class="form-input" type="text" id="nombre" name="nombre" placeholder="Su nombre" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="empresa">Empresa</label>
+              <input class="form-input" type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa" autocomplete="organization">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="email">Email *</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="su@email.com" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="telefono">Teléfono</label>
+              <input class="form-input" type="tel" id="telefono" name="telefono" placeholder="+54 351 000-0000" autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="mensaje">Mensaje *</label>
+            <textarea class="form-textarea" id="mensaje" name="mensaje" placeholder="Cuéntenos brevemente su consulta..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar consulta</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  </main><!-- /#main-content -->
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <div class="footer-logo">PÉREZ GÓMEZ</div>
+    <div class="footer-links">
+      <a href="#practica">Práctica</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="footer-copy">&copy; 2025 Pérez Gómez Abogados. Todos los derechos reservados.</div>
+  </footer>
+
+  <!-- ── WHATSAPP ───────────────────────────────────────────────────── -->
+  <a href="https://wa.me/5493514220000" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <span class="whatsapp-label" aria-hidden="true">Escribinos</span>
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ── JAVASCRIPT ─────────────────────────────────────────────────── -->
+  <script>
+    // ── NAV SCROLL ──────────────────────────────────────────────────
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── HERO HEADLINE WORDS ─────────────────────────────────────────
+    const words = document.querySelectorAll('.hero-headline .word');
+    words.forEach((word, i) => {
+      word.style.animation = `fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) ${0.35 + i * 0.13}s forwards`;
+    });
+
+    // ── INTERSECTION OBSERVER (reveal) ──────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── COUNTER ANIMATION ───────────────────────────────────────────
+    function animateCount(el, target, duration) {
+      const start = performance.now();
+      const update = (time) => {
+        const elapsed = time - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // ease-out-quart
+        const eased = 1 - Math.pow(1 - progress, 4);
+        el.textContent = Math.round(eased * target);
+        if (progress < 1) requestAnimationFrame(update);
+      };
+      requestAnimationFrame(update);
+    }
+
+    const statsSection = document.getElementById('stats');
+    let counted = false;
+    const statsObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !counted) {
+        counted = true;
+        document.querySelectorAll('.count').forEach(el => {
+          animateCount(el, parseInt(el.dataset.target), 1600);
+        });
+      }
+    }, { threshold: 0.3 });
+    statsObserver.observe(statsSection);
+
+    // ── MOBILE MENU ─────────────────────────────────────────────────
+    const burger = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      burger.setAttribute('aria-label', 'Cerrar menú');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenuFn() {
+      mobileMenu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Abrir menú');
+      document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', openMenu);
+    closeMenu.addEventListener('click', closeMenuFn);
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', closeMenuFn);
+    });
+    mobileMenu.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenuFn();
+    });
+
+    // ── FORM SUBMIT ─────────────────────────────────────────────────
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.form-submit');
+      btn.textContent = 'Enviando…';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = '✓ Mensaje enviado';
+        btn.style.background = '#1a7a4a';
+        setTimeout(() => {
+          btn.textContent = 'Enviar consulta';
+          btn.style.background = '';
+          btn.disabled = false;
+          this.reset();
+        }, 3000);
+      }, 1200);
+    });
+  </script>
+
+</body>
+</html>
