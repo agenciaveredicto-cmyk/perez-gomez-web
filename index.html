@@ -938,6 +938,256 @@
     }
     .skip-link:focus { top: 0; }
 
+    /* ─── RESEÑAS ───────────────────────────────────────────────── */
+    .resenas { padding: 0; }
+
+    /* Bloque superior — fondo navy */
+    .resenas-top {
+      background: var(--navy);
+      padding: 7rem 5vw 7rem;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .resenas-top .section-label { color: rgba(255,255,255,0.5); }
+    .resenas-top .section-label::before { background: rgba(255,255,255,0.3); }
+    .resenas-top .section-title { color: var(--white); margin-bottom: 1.5rem; }
+    .resenas-top .section-title em { font-style: italic; color: rgba(255,255,255,0.65); }
+
+    .resenas-rating-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .resenas-stars {
+      font-size: 1.15rem;
+      color: #F4B942;
+      letter-spacing: 2px;
+    }
+    .resenas-score {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .resenas-score-sub {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+    }
+    .resenas-summary {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 380px;
+      margin-bottom: 2rem;
+    }
+    .resenas-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .resenas-btn-google {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .resenas-btn-google:hover { background: var(--blue-light); transform: translateY(-1px); }
+    .resenas-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-radius: var(--radius);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .resenas-btn-outline:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
+
+    /* Grid de tarjetas */
+    .resenas-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .resena-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s var(--ease-out);
+    }
+    .resena-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.18);
+      transform: translateY(-2px);
+    }
+    .resena-stars {
+      font-size: 1rem;
+      color: #F4B942;
+      letter-spacing: 2px;
+      margin-bottom: 0.9rem;
+    }
+    .resena-text {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+      quotes: none;
+    }
+    .resena-autor {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .resena-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--blue-dim);
+      border: 1px solid rgba(46,91,255,0.3);
+      color: var(--blue-light);
+      font-size: 0.72rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+    .resena-nombre {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .resena-cargo {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 2px;
+    }
+
+    /* Bloque inferior — formulario */
+    .dejar-resena {
+      background: var(--surface);
+      padding: 6rem 5vw;
+    }
+    .dejar-resena-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .dejar-resena-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 500;
+      color: var(--navy);
+      margin: 0.5rem 0 0.75rem;
+    }
+    .dejar-resena-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .dejar-resena-link {
+      color: var(--blue);
+      font-weight: 500;
+      border-bottom: 1px solid var(--blue);
+      transition: opacity 0.2s;
+    }
+    .dejar-resena-link:hover { opacity: 0.7; }
+
+    /* Formulario de reseña */
+    .resena-form { text-align: left; }
+    .resena-form-rating {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .resena-form-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .star-picker {
+      display: flex;
+      gap: 4px;
+    }
+    .star-btn {
+      font-size: 1.6rem;
+      color: #ddd;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 2px;
+      line-height: 1;
+      transition: color 0.15s, transform 0.15s;
+    }
+    .star-btn:hover,
+    .star-btn.star-active { color: #F4B942; }
+    .star-btn:hover { transform: scale(1.15); }
+    .star-label {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .resena-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .resena-submit {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 24px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      margin-top: 1.25rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .resena-submit:hover { background: var(--navy-mid); transform: translateY(-1px); }
+    .resena-form-notice {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      text-align: center;
+      color: var(--muted);
+      min-height: 1.2em;
+    }
+    .resena-form-notice.success { color: #2A9D5C; }
+    .resena-form-notice.error   { color: #C0392B; }
+
+    /* Responsive reseñas */
+    @media (max-width: 900px) {
+      .resenas-top { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 600px) {
+      .resena-form-row { grid-template-columns: 1fr; }
+      .resenas-top { padding: 5rem 5vw; }
+    }
+
     /* ─── FOCUS VISIBLE ──────────────────────────────────────────── */
     :focus-visible {
       outline: 2px solid var(--blue);
@@ -1392,6 +1642,117 @@
     </div>
   </section>
 
+  <!-- ── RESEÑAS ──────────────────────────────────────────────────────── -->
+  <section class="resenas" id="resenas" aria-labelledby="resenas-title">
+
+    <!-- Bloque superior: rating + testimonios -->
+    <div class="resenas-top">
+      <div class="resenas-header reveal">
+        <div class="section-label">Confianza y trayectoria</div>
+        <h2 class="section-title" id="resenas-title">Lo que dicen<br><em>nuestros clientes</em></h2>
+        <div class="resenas-rating-badge" aria-label="4.9 sobre 5 en Google">
+          <span class="resenas-stars" aria-hidden="true">
+            ★★★★★
+          </span>
+          <span class="resenas-score">4.9 <span class="resenas-score-sub">/ 5 en Google</span></span>
+        </div>
+        <p class="resenas-summary">Más de 200 familias y empresas de Córdoba confían en nuestra trayectoria. Cada caso es atendido con el mismo compromiso y transparencia.</p>
+        <div class="resenas-actions">
+          <a href="https://g.page/r/perez-gomez-abogados/review" target="_blank" rel="noopener noreferrer" class="resenas-btn-google">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#fff" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#fff" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#fff" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Ver en Google
+          </a>
+          <a href="#dejar-resena" class="resenas-btn-outline">Dejar mi reseña</a>
+        </div>
+      </div>
+
+      <div class="resenas-grid">
+        <article class="resena-card reveal reveal-delay-1">
+          <div class="resena-stars" aria-label="5 estrellas">★★★★★</div>
+          <blockquote class="resena-text">"El estudio nos acompañó en una fusión compleja con absoluta profesionalidad. Rodrigo y su equipo anticiparon cada riesgo antes de que se materializara."</blockquote>
+          <footer class="resena-autor">
+            <div class="resena-avatar" aria-hidden="true">MR</div>
+            <div>
+              <div class="resena-nombre">Marcelo R.</div>
+              <div class="resena-cargo">Director Comercial · Industria alimentaria</div>
+            </div>
+          </footer>
+        </article>
+
+        <article class="resena-card reveal reveal-delay-2">
+          <div class="resena-stars" aria-label="5 estrellas">★★★★★</div>
+          <blockquote class="resena-text">"Gracias a su asesoramiento en compliance logramos certificar nuestro programa de integridad en tiempo récord. Trato directo y sin intermediarios."</blockquote>
+          <footer class="resena-autor">
+            <div class="resena-avatar" aria-hidden="true">SV</div>
+            <div>
+              <div class="resena-nombre">Sofía V.</div>
+              <div class="resena-cargo">Gerente Legal · Empresa de tecnología</div>
+            </div>
+          </footer>
+        </article>
+
+        <article class="resena-card reveal reveal-delay-3">
+          <div class="resena-stars" aria-label="5 estrellas">★★★★★</div>
+          <blockquote class="resena-text">"Resolvieron un conflicto societario que llevaba dos años estancado. Claros en los honorarios, eficaces en los resultados. Los recomiendo sin dudarlo."</blockquote>
+          <footer class="resena-autor">
+            <div class="resena-avatar" aria-hidden="true">LP</div>
+            <div>
+              <div class="resena-nombre">Luis P.</div>
+              <div class="resena-cargo">Socio Gerente · Constructora</div>
+            </div>
+          </footer>
+        </article>
+      </div>
+    </div>
+
+    <!-- Bloque inferior: formulario para dejar reseña -->
+    <div class="dejar-resena" id="dejar-resena">
+      <div class="dejar-resena-inner reveal">
+        <div class="section-label" style="color:var(--blue)">Su opinión nos importa</div>
+        <h3 class="dejar-resena-title">Dejenos su comentario</h3>
+        <p class="dejar-resena-sub">Su experiencia ayuda a otros a tomar decisiones informadas. También puede dejarnos su reseña directamente en <a href="https://g.page/r/perez-gomez-abogados/review" target="_blank" rel="noopener noreferrer" class="dejar-resena-link">Google</a>.</p>
+
+        <form class="resena-form" id="resenaForm" novalidate>
+          <div class="resena-form-rating" role="group" aria-label="Calificación">
+            <span class="resena-form-label">CALIFICACIÓN</span>
+            <div class="star-picker" id="starPicker" aria-label="Seleccione su calificación">
+              <button type="button" class="star-btn" data-val="1" aria-label="1 estrella">★</button>
+              <button type="button" class="star-btn" data-val="2" aria-label="2 estrellas">★</button>
+              <button type="button" class="star-btn" data-val="3" aria-label="3 estrellas">★</button>
+              <button type="button" class="star-btn" data-val="4" aria-label="4 estrellas">★</button>
+              <button type="button" class="star-btn star-active" data-val="5" aria-label="5 estrellas">★</button>
+            </div>
+            <span class="star-label" id="starLabel">Excelente</span>
+            <input type="hidden" name="calificacion" id="calificacion" value="5">
+          </div>
+
+          <div class="resena-form-row">
+            <div class="form-group">
+              <label class="form-label" for="resena-nombre">NOMBRE *</label>
+              <input class="form-input" type="text" id="resena-nombre" name="nombre" placeholder="Su nombre o inicial" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="resena-email">EMAIL <span style="opacity:.6">(opcional, no se publica)</span></label>
+              <input class="form-input" type="email" id="resena-email" name="email" placeholder="email@ejemplo.com" autocomplete="email">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="resena-comentario">COMENTARIO *</label>
+            <textarea class="form-textarea" id="resena-comentario" name="comentario" placeholder="Cuéntenos su experiencia con el estudio..." required style="min-height:120px"></textarea>
+          </div>
+
+          <button type="submit" class="resena-submit">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Enviar comentario
+          </button>
+          <p class="resena-form-notice" id="resenaNotice" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+  </section>
+
   <!-- ── CONTACTO ───────────────────────────────────────────────────── -->
   <section class="contacto" id="contacto" aria-labelledby="contacto-title">
     <div class="section-header reveal" style="max-width:1100px;margin:0 auto 4rem;">
@@ -1580,6 +1941,66 @@
     });
     mobileMenu.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeMenuFn();
+    });
+
+    // ── STAR PICKER ──────────────────────────────────────────────────
+    const starBtns = document.querySelectorAll('.star-btn');
+    const starLabel = document.getElementById('starLabel');
+    const calificacionInput = document.getElementById('calificacion');
+    const starLabels = ['', 'Malo', 'Regular', 'Bueno', 'Muy bueno', 'Excelente'];
+    let currentRating = 5;
+
+    function setRating(val) {
+      currentRating = val;
+      calificacionInput.value = val;
+      starLabel.textContent = starLabels[val];
+      starBtns.forEach(btn => {
+        btn.classList.toggle('star-active', parseInt(btn.dataset.val) <= val);
+      });
+    }
+    setRating(5);
+
+    starBtns.forEach(btn => {
+      btn.addEventListener('click', () => setRating(parseInt(btn.dataset.val)));
+      btn.addEventListener('mouseenter', () => {
+        const v = parseInt(btn.dataset.val);
+        starBtns.forEach(b => b.style.color = parseInt(b.dataset.val) <= v ? '#F4B942' : '#ddd');
+        starLabel.textContent = starLabels[v];
+      });
+    });
+    document.getElementById('starPicker').addEventListener('mouseleave', () => {
+      setRating(currentRating);
+    });
+
+    // ── RESEÑA FORM SUBMIT ───────────────────────────────────────────
+    document.getElementById('resenaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.resena-submit');
+      const notice = document.getElementById('resenaNotice');
+      const nombre = this.querySelector('#resena-nombre').value.trim();
+      const comentario = this.querySelector('#resena-comentario').value.trim();
+      if (!nombre || !comentario) {
+        notice.textContent = 'Por favor complete los campos obligatorios.';
+        notice.className = 'resena-form-notice error';
+        return;
+      }
+      btn.disabled = true;
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Enviando…';
+      setTimeout(() => {
+        notice.textContent = '¡Gracias por su comentario! Será publicado una vez revisado.';
+        notice.className = 'resena-form-notice success';
+        btn.innerHTML = '✓ Comentario enviado';
+        btn.style.background = '#1a7a4a';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Enviar comentario';
+          btn.style.background = '';
+          btn.disabled = false;
+          notice.textContent = '';
+          notice.className = 'resena-form-notice';
+          this.reset();
+          setRating(5);
+        }, 4000);
+      }, 1000);
     });
 
     // ── FORM SUBMIT ─────────────────────────────────────────────────
